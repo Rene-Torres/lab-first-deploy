@@ -27,7 +27,7 @@ siteController.post('/send-email', (req, res, next) => {
 //.then(info => console.log(info))
 //.catch(error => console.log(error))
 res.send('Correo enviado');
-  //let { email, subject, message } = req.body;
+  let { email, subject, message } = req.body;
   //res.render('message', { email, subject, message })
 });
 
