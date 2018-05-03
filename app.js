@@ -9,12 +9,14 @@ const bodyParser     = require("body-parser");
 const mongoose       = require("mongoose");
 const app            = express();
 
+
+require("dotenv").config();
 // Controllers
 const siteController     = require("./routes/siteController");
 const locationController = require("./routes/locationController");
 
 // Mongoose configuration
-mongoose.connect("mongodb://Rene:torres@ds113870.mlab.com:13870/irondata");
+mongoose.connect(process.env.DATABASE);
 
 // Middlewares configuration
 app.use(logger("dev"));
@@ -64,3 +66,11 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
+
+
+
+
+//reglas para heroku
+//nunca se hace deploy a heroku desde otra branch que no sea MASTER
+//solo se sube desde branch MASTER
+//debe de hacerse commit git add -A
