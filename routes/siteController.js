@@ -9,6 +9,8 @@ siteController.get('/send-mail', (req, res)=>{
 
 
 siteController.post('/send-email', (req, res, next) => {
+  let { email, subject, message } = req.body;
+
   const tp = nodemailer.createTransport({
     service :"Gmail",
     auth:{
@@ -27,7 +29,6 @@ siteController.post('/send-email', (req, res, next) => {
 //.then(info => console.log(info))
 //.catch(error => console.log(error))
 res.send('Correo enviado');
-  let { email, subject, message } = req.body;
   //res.render('message', { email, subject, message })
 });
 
