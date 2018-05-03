@@ -13,7 +13,7 @@ siteController.post('/send-email', (req, res, next) => {
     service :"Gmail",
     auth:{
       user:process.env.EMAIL_USER,
-      pass:proccess.env.EMAIL_PASSWORD
+      pass:process.env.EMAIL_PASSWORD
     }
   });
 
